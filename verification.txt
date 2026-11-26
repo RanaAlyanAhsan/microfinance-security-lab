@@ -1,0 +1,32 @@
+=== Docker Containers ===
+NAME               IMAGE                           COMMAND                  SERVICE    CREATED         STATUS         PORTS
+microfinance-db    mariadb:10                      "docker-entrypoint.s…"   database   9 minutes ago   Up 9 minutes   3306/tcp
+microfinance-web   ghcr.io/digininja/dvwa:latest   "docker-php-entrypoi…"   dvwa       9 minutes ago   Up 9 minutes   127.0.0.1:4280->80/tcp
+=== HTTP Response ===
+HTTP/1.1 302 Found
+Date: Thu, 26 Nov 2026 15:09:32 GMT
+Server: Apache/2.4.69 (Debian)
+X-Powered-By: PHP/8.5.12
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Location: login.php
+Content-Type: text/html; charset=UTF-8
+
+=== Local Port Binding ===
+LISTEN 0      4096       127.0.0.1:4280      0.0.0.0:*    users:(("docker-proxy",pid=8693,fd=8))                                         
+=== Firewall Status ===
+Status: active
+
+To                         Action      From
+--                         ------      ----
+22/tcp                     ALLOW       Anywhere                  
+80/tcp                     ALLOW       Anywhere                  
+22/tcp (v6)                ALLOW       Anywhere (v6)             
+80/tcp (v6)                ALLOW       Anywhere (v6)             
+
+=== SSH Configuration ===
+permitrootlogin no
+pubkeyauthentication yes
+passwordauthentication no
+kbdinteractiveauthentication no
